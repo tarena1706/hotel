@@ -7,13 +7,13 @@ package com.springboot.pojo;
  *
  */
 public class Product {
-	private String id;			// 商品id
-	private String Name;		// 商品名称
-	private Double price;		// 商品单价
-	private String category;	// 商品类别
-	private Integer pNum;		// 商品库存
-	private String imgurl;		// 商品图片地址
-	private String description;	// 商品描述
+	private String id;            // 商品id
+	private String name;        // 商品名称
+	private Double price;        // 商品单价
+	private String category;    // 商品类别
+	private Integer pNum;        // 商品库存
+	private String imgurl;        // 商品图片地址
+	private String description;    // 商品描述
 
 	@Override
 	public boolean equals(Object o) {
@@ -26,11 +26,6 @@ public class Product {
 
 	}
 
-	@Override
-	public int hashCode() {
-		return id.hashCode();
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -40,11 +35,11 @@ public class Product {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public Double getPrice() {
@@ -85,5 +80,18 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "Product{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", price=" + price +
+				", category='" + category + '\'' +
+				", pNum=" + pNum +
+				", imgurl='" + imgurl + '\'' +
+				", description='" + description + '\'' +
+				'}';
 	}
 }

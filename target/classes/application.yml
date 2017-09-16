@@ -4,12 +4,12 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot
+    url: jdbc:mysql://localhost:3306/easymall
     username: root
-    password: rootroot
+    password: 1
   mvc:
     view:
-      prefix: /WEB-INF/
+      prefix: /WEB-INF/pages/
       suffix: .jsp
 mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
