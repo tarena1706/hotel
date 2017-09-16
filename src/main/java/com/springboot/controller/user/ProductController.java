@@ -2,6 +2,7 @@ package com.springboot.controller.user;
 
 import com.springboot.pojo.Product;
 import com.springboot.service.ProductService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,7 +23,7 @@ public class ProductController {
     ProductService prodService;
 
     @RequestMapping("/prodlist")
-    public String ProdList(String nameStr, String cateStr, String minpriceStr, String maxpriceStr, Model model) {
+    public String ProdList(String nameStr, String cateStr, String minpriceStr, String maxpriceStr, Model model,HttpServletRequest request) {
 //商品列表
         System.out.println("测试1");
         //1、接收参数
@@ -48,7 +49,7 @@ public class ProductController {
         //4、调用查询的方法
         List<Product> list = prodService.findAllByKey(name, cate, min, max);
         //5、将查询关键字和list保存到request作用域中
-        model.addAttribute("list", list);
+        request.setAttribute("list",list);
         model.addAttribute("name", name);
         model.addAttribute("cate", cate);
         model.addAttribute("min", min);
@@ -60,10 +61,10 @@ public class ProductController {
             System.out.println(p);
         }
         //6、转发到prod_list.jsp
-        return "forward:/pages/prod_list";
+        return "prod_list";
     }
 
-    @RequestMapping("/prod_info")
+    @RequestMapping("/prodinfo")
     public String prodInfo(String id ,Model model) {
         //商品详情
 
@@ -71,22 +72,22 @@ public class ProductController {
       //  String id = request.getParameter("id");
         //2创建业务层对象
         //3、调用根据id查询商品详细的方法
-        Product prod = prodService.findProdById("05e20c1a-0401-4c0a-82ab-6fb0f37db397");
+        Product prod = prodService.findProdById(id);
         System.out.println(prod);
         //4、将查询结果保存到request作用域中
         model.addAttribute("prod", prod);
         //5、转发到prod_info.jsp
 
-    return "forward:/pages/prod_info";
+        return "prod_info";
     }
-    @RequestMapping("/test")
+   /* @RequestMapping("/test")
     public void testDemo(){
         System.out.println("aaaaaaaaaaaa");
-      /* List<Product> list = prodService.findAllByKey("兔","电器",null,null);
+       List<Product> list = prodService.findAllByKey("","",null,null);
         for (Product p: list){
             System.out.println(p);
-        }*/
-        Product prod = prodService.findProdById("05e20c1a-0401-4c0a-82ab-6fb0f37db397");
-        System.out.println(prod);
-    }
+        }
+       // Product prod = prodService.findProdById("05e20c1a-0401-4c0a-82ab-6fb0f37db397");
+       // System.out.println(prod);
+    }*/
 }

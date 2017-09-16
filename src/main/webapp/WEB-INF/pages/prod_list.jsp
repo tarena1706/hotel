@@ -7,14 +7,14 @@
  	<link href="${ app }/staticfile/css/prodList.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@include file="WEB-INF/pages/_head.jsp" %>
+<%@include file="_head.jsp" %>
 	<div id="content">
 		<div id="search_div">
-			<form method="post" action="${ app }/servlet/ProdListServlet">
-				<span class="input_span">商品名：<input type="text" name="name" value="${name}"/></span>
-				<span class="input_span">商品种类：<input type="text" name="category" value="${cate }"/></span>
-				<span class="input_span">商品价格区间：<input type="text" name="minprice" value="${min}"/> - 
-				<input type="text" name="maxprice" value="${max }"/></span>
+			<form method="post" action="${ app }/prodlist">
+				<span class="input_span">商品名：<input type="text" name="nameStr" value="${name}"/></span>
+				<span class="input_span">商品种类：<input type="text" name="cateStr" value="${cate }"/></span>
+				<span class="input_span">商品价格区间：<input type="text" name="minpriceStr" value="${min}"/> -
+				<input type="text" name="maxpriceStr" value="${max }"/></span>
 				<input type="submit" value="查询">
 			</form>
 		</div>
@@ -25,7 +25,7 @@
 				<img src="${ app }/servlet/ProdImgServlet?imgurl=${prod.imgurl}"></img>
 				</a>
 				<div id="prod_name_div">
-				<a href="${ app }/servlet/ProdInfoServlet?id=${prod.id}">
+				<a href="${ app }/prodinfo?id=${prod.id}">
 					${prod.name}
 				</a>
 				</div>
@@ -37,7 +37,7 @@
 						<a href="${ app }/servlet/CartAddServlet?id=${prod.id}">加入购物车</a>
 					</div>					
 					<div id="say_div">
-						库存：${prod.pnum }
+						库存：${prod.pNum }
 					</div>					
 				</div>
 			</div>
@@ -45,6 +45,6 @@
 		</div>
 		<div style="clear: both"></div>
 	</div>
-<%@include file="WEB-INF/pages/_foot.jsp" %>
+<%@include file="_foot.jsp" %>
 </body>
 </html>

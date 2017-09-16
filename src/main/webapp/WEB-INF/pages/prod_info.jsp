@@ -37,7 +37,7 @@
 						EasyMall 价：<span class="price_red">￥${prod.price }<br/>
 			            运&nbsp;&nbsp;费：满 100 免运费<br />
 			            服&nbsp;&nbsp;务：由EasyMall负责发货，并提供售后服务<br />
-			            库&nbsp;&nbsp;存：${prod.pnum }
+			            库&nbsp;&nbsp;存：${prod.pNum }
 			            购买数量：
 	            <a href="#" id="delNum" onclick="">-</a>
 	            <input id="buyNumInp" name="" type="text" value="1" onblur="">
