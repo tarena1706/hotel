@@ -21,8 +21,8 @@
 		<div id="prod_content">
 	<c:forEach items="${requestScope.list}" var="prod">
 			<div id="prod_div">
-				<a href="${ app }/servlet/ProdInfoServlet?id=${prod.id}">
-				<img src="${ app }/servlet/ProdImgServlet?imgurl=${prod.imgurl}"></img>
+				<a href="${ app }prodinfo?id=${prod.id}">
+				<img src="${prod.imgurl}"/>
 				</a>
 				<div id="prod_name_div">
 				<a href="${ app }/prodinfo?id=${prod.id}">
@@ -35,10 +35,10 @@
 				<div>
 					<div id="gotocart_div">
 						<a href="${ app }/servlet/CartAddServlet?id=${prod.id}">加入购物车</a>
-					</div>					
+					</div>
 					<div id="say_div">
 						库存：${prod.pNum }
-					</div>					
+					</div>
 				</div>
 			</div>
 		</c:forEach>

@@ -80,14 +80,9 @@ public class ProductController {
 
         return "prod_info";
     }
-   /* @RequestMapping("/test")
-    public void testDemo(){
-        System.out.println("aaaaaaaaaaaa");
-       List<Product> list = prodService.findAllByKey("","",null,null);
-        for (Product p: list){
-            System.out.println(p);
-        }
-       // Product prod = prodService.findProdById("05e20c1a-0401-4c0a-82ab-6fb0f37db397");
-       // System.out.println(prod);
-    }*/
+    @RequestMapping("forw")
+  public String forw(String imgurl){
+
+      return "forward:imgurl";
+  }
 }
